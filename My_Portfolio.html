@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="My_Portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <h1>Portfolio</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header id="home">
+    <h1>Hello,I am Avineshwaran</h1>
+    <p>Web Developer | Python Enthusiast | UI/UX Learner</p>
+  </header>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Hi! I’m an aspiring full-stack developer with a real passion for creating meaningful and engaging digital experiences. Right now, I’m learning and experimenting with HTML, CSS, JavaScript, Python, and diving into the world of UI/UX design. I love taking an idea and turning it into something functional and beautiful on the web.
+
+      What keeps me going is curiosity — I’m always exploring new technologies, tools, and ways to improve. Whether it’s building a simple landing page or solving a tricky coding problem, I enjoy the process of learning and creating something that can make a difference.</p>
+  </section>
+
+  <section id="project" class="section">
+    <h2>Projects</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <h3>To-Do List App</h3>
+        <p>A simple task manager built with Python and HTML.</p>
+      </div>
+      <div class="project-card">
+        <h3>Weather App</h3>
+        <p>Shows current weather using OpenWeather API (in progress).</p>
+      </div>
+      <div class="project-card">
+        <h3>Startup Fund Analysis</h3>
+        <p>A data science project using Python and Pandas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-roadmap">
+      <div class="skill-step">
+        <h3>HTML, CSS, JavaScript</h3>
+        <span class="skill-level">Basic</span>
+      </div>
+      <div class="skill-step">
+        <h3>Python</h3>
+        <span class="skill-level">Intermediate</span>
+      </div>
+      <div class="skill-step">
+        <h3>Figma</h3>
+        <span class="skill-level">Beginner</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div>
+    <h2>Contact</h2>
+    <p><a href="mailto:avineshwaran1910@gmail.com"><i class="fa-solid fa-envelope"></i></a> Email: avineshwaran1910@gmail.com</p>
+    <p><a href="https://github.com/Avineshwaran1910" target="_blank"><i class="fa-brands fa-github"></i></a> GitHub</p>
+    <p><a href="https://www.instagram.com/avineshwaran_1?igsh=MWN3ZWN6dTNibzhhZA%3D%3D" target="_blank"><i class="fa-brands fa-instagram"></i></a> Instagram</p>
+    </div>
+  </section>
+
+ 
+</body>
+<script>
+// Slide-in animation for skills roadmap
+function revealSkills() {
+  const steps = document.querySelectorAll('.skill-step');
+  const trigger = window.innerHeight * 0.85;
+  steps.forEach(step => {
+    const rect = step.getBoundingClientRect();
+    if (rect.top < trigger) {
+      step.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealSkills);
+window.addEventListener('DOMContentLoaded', revealSkills);
+// Smooth scroll for nav links
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(revealSkills, 600); // ensure animation after scroll
+    }
+  });
+});
+</script>
+</html>
